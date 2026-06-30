@@ -1,0 +1,1702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Link2Lead — B2B LinkedIn Outbound Growth Agency</title>
+<meta name="description" content="Link2Lead helps founder-led B2B companies generate qualified meetings through LinkedIn-driven outbound systems." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+/* ============================================================
+   RESET & TOKENS
+============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --lime:        #AADD00;
+  --lime-bright: #C8F000;
+  --lime-dim:    #8AB800;
+  --lime-10:     rgba(170,221,0,0.10);
+  --lime-20:     rgba(170,221,0,0.20);
+  --lime-30:     rgba(170,221,0,0.30);
+  --black:       #060606;
+  --s1:          #0C0C0C;
+  --s2:          #131313;
+  --s3:          #1A1A1A;
+  --border:      rgba(170,221,0,0.10);
+  --border-md:   rgba(170,221,0,0.22);
+  --white:       #F5F5F5;
+  --grey:        #888;
+  --muted:       #444;
+  --display: 'Space Grotesk', sans-serif;
+  --body:    'Inter', sans-serif;
+  --radius:  14px;
+  --strip-h: 44px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+img { display: block; max-width: 100%; }
+a  { color: inherit; text-decoration: none; }
+
+/* ============================================================
+   UTILITIES
+============================================================ */
+.wrap    { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
+.wrap-sm { max-width: 760px;  margin: 0 auto; padding: 0 28px; }
+
+.label {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 11px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--lime);
+  margin-bottom: 18px;
+}
+.label-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--lime); animation: blink 2.2s infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.2} }
+
+.heading {
+  font-family: var(--display);
+  font-weight: 800; line-height: 1.08; letter-spacing: -1.5px;
+  font-size: clamp(32px,4.5vw,56px);
+  margin-bottom: 20px;
+}
+.heading em { font-style: normal; color: var(--lime); }
+
+.sub {
+  font-size: clamp(16px,1.6vw,19px);
+  color: var(--grey); line-height: 1.75;
+  max-width: 580px;
+}
+
+.divider { height: 1px; background: var(--border); }
+
+/* section vertical rhythm */
+.section { padding: 110px 0; }
+.section--dark { background: var(--s1); }
+
+/* ============================================================
+   NAV
+============================================================ */
+.nav {
+  position: fixed; top: var(--strip-h); left: 0; right: 0; z-index: 200;
+  height: 62px;
+  display: flex; align-items: center;
+  background: rgba(6,6,6,.88);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+  transition: background .3s;
+}
+.nav__inner {
+  width: 100%; max-width: 1120px; margin: 0 auto;
+  padding: 0 28px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav__logo {
+  display: flex; align-items: center; gap: 10px;
+}
+.nav__mark-img {
+  height: 42px; width: auto;
+  display: block;
+  filter: drop-shadow(0 0 14px rgba(170,221,0,.25));
+}
+.nav__links {
+  display: flex; align-items: center; gap: 30px; list-style: none;
+}
+.nav__links a {
+  font-size: 14px; font-weight: 500; color: var(--grey);
+  transition: color .2s;
+}
+.nav__links a:hover { color: var(--white); }
+.nav__cta {
+  background: var(--lime); color: #000 !important;
+  padding: 8px 22px; border-radius: 7px;
+  font-weight: 700 !important; font-size: 13px !important;
+  transition: background .2s, transform .15s;
+}
+.nav__cta:hover { background: var(--lime-bright); transform: translateY(-1px); }
+
+/* hamburger */
+.nav__hamburger {
+  display: none; flex-direction: column; gap: 5px; cursor: pointer;
+  padding: 4px;
+}
+.nav__hamburger span {
+  display: block; width: 22px; height: 2px;
+  background: var(--white); border-radius: 2px; transition: all .3s;
+}
+.nav__mobile-menu {
+  display: none; position: fixed; top: calc(62px + var(--strip-h)); left: 0; right: 0;
+  background: rgba(6,6,6,.97); backdrop-filter: blur(20px);
+  padding: 28px 28px 36px;
+  border-bottom: 1px solid var(--border);
+  flex-direction: column; gap: 20px; z-index: 199;
+}
+.nav__mobile-menu a {
+  font-size: 16px; font-weight: 600; color: var(--grey);
+  padding: 8px 0; border-bottom: 1px solid var(--border);
+}
+.nav__mobile-cta {
+  display: inline-block; background: var(--lime); color: #000 !important;
+  padding: 12px 24px; border-radius: 8px; font-weight: 700;
+  font-size: 15px; text-align: center; margin-top: 6px;
+}
+
+/* ============================================================
+   TRIAL ANNOUNCEMENT STRIP
+============================================================ */
+.trial-strip {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 201;
+  height: var(--strip-h);
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  background: linear-gradient(90deg, var(--lime-dim), var(--lime), var(--lime-bright));
+  color: #000;
+  font-size: 13px; font-weight: 700;
+  text-align: center;
+  padding: 0 16px;
+  letter-spacing: .01em;
+  box-shadow: 0 2px 18px rgba(170,221,0,.35);
+  transition: transform .2s, filter .2s;
+}
+.trial-strip:hover { filter: brightness(1.05); }
+.trial-strip strong { font-weight: 900; text-decoration: underline; text-underline-offset: 3px; }
+.trial-strip__dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #000; flex-shrink: 0;
+  animation: blink 1.6s infinite;
+}
+.trial-strip__arrow { font-weight: 900; transition: transform .2s; }
+.trial-strip:hover .trial-strip__arrow { transform: translateX(4px); }
+
+.nav__cta--trial {
+  background: transparent !important;
+  color: var(--lime) !important;
+  border: 1px solid var(--border-md);
+  padding: 7px 18px !important;
+}
+.nav__cta--trial:hover { background: var(--lime-10) !important; border-color: var(--lime); }
+
+.nav__mobile-cta--trial {
+  background: transparent; color: var(--lime) !important;
+  border: 1px solid var(--border-md);
+}
+
+@media (max-width: 640px) {
+  .trial-strip { font-size: 11.5px; gap: 6px; padding: 0 10px; }
+  .trial-strip strong { display: inline; }
+}
+
+/* ============================================================
+   HERO
+============================================================ */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center;
+  padding: calc(140px + var(--strip-h)) 28px 100px;
+  position: relative; overflow: hidden;
+}
+.hero__glow {
+  position: absolute; top: -180px; left: 50%;
+  transform: translateX(-50%);
+  width: 900px; height: 900px;
+  background: radial-gradient(circle, rgba(170,221,0,.11) 0%, transparent 68%);
+  pointer-events: none;
+}
+.hero__grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(170,221,0,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(170,221,0,.035) 1px, transparent 1px);
+  background-size: 52px 52px;
+  pointer-events: none;
+}
+.hero__badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--lime-10); border: 1px solid var(--border-md);
+  border-radius: 100px; padding: 7px 18px;
+  font-size: 12px; font-weight: 600; color: var(--lime);
+  letter-spacing: .08em; text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.hero__badge-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--lime); animation: blink 2s infinite;
+}
+.hero__trial-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: linear-gradient(90deg, var(--lime-dim), var(--lime));
+  color: #000; font-weight: 800; font-size: 14px;
+  padding: 10px 22px; border-radius: 100px;
+  margin-bottom: 32px;
+  box-shadow: 0 0 0 1px rgba(170,221,0,.4), 0 8px 28px rgba(170,221,0,.25);
+  animation: trialPulse 2.4s ease-in-out infinite;
+  transition: transform .2s, box-shadow .2s;
+}
+.hero__trial-badge:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 0 0 1px rgba(170,221,0,.6), 0 12px 36px rgba(170,221,0,.4);
+}
+@keyframes trialPulse {
+  0%, 100% { box-shadow: 0 0 0 1px rgba(170,221,0,.4), 0 8px 28px rgba(170,221,0,.25); }
+  50%      { box-shadow: 0 0 0 1px rgba(170,221,0,.6), 0 8px 38px rgba(170,221,0,.45); }
+}
+.hero__h1 {
+  font-family: var(--display);
+  font-size: clamp(44px, 7vw, 90px);
+  font-weight: 800; line-height: 1.02;
+  letter-spacing: -3px;
+  max-width: 960px; margin: 0 auto 26px;
+}
+.hero__h1 em { font-style: normal; color: var(--lime); }
+.hero__sub {
+  font-size: clamp(17px,1.8vw,21px);
+  color: var(--grey); max-width: 560px;
+  margin: 0 auto 52px; line-height: 1.75;
+}
+.hero__actions {
+  display: flex; align-items: center; gap: 14px;
+  justify-content: center; flex-wrap: wrap;
+  margin-bottom: 80px;
+}
+.btn-primary {
+  background: var(--lime); color: #000;
+  padding: 15px 36px; border-radius: 9px;
+  font-weight: 800; font-size: 15px;
+  box-shadow: 0 0 36px rgba(170,221,0,.28);
+  transition: background .2s, transform .2s, box-shadow .2s;
+}
+.btn-primary:hover {
+  background: var(--lime-bright);
+  transform: translateY(-2px);
+  box-shadow: 0 0 56px rgba(170,221,0,.4);
+}
+.btn-ghost {
+  border: 1px solid var(--border-md); color: var(--white);
+  padding: 15px 36px; border-radius: 9px;
+  font-weight: 600; font-size: 15px;
+  transition: border-color .2s, background .2s, color .2s;
+}
+.btn-ghost:hover {
+  border-color: var(--lime); background: var(--lime-10); color: var(--lime);
+}
+.hero__stats {
+  display: flex; gap: 0; flex-wrap: wrap; justify-content: center;
+  border: 1px solid var(--border); border-radius: var(--radius);
+  overflow: hidden; background: var(--s1);
+  max-width: 700px; margin: 0 auto;
+}
+.hero__stat {
+  flex: 1; min-width: 140px;
+  padding: 24px 20px; text-align: center;
+  border-right: 1px solid var(--border);
+}
+.hero__stat:last-child { border-right: none; }
+.hero__stat-n {
+  font-family: var(--display); font-size: 28px; font-weight: 800;
+  color: var(--lime); display: block; letter-spacing: -1px;
+}
+.hero__stat-l {
+  font-size: 12px; color: var(--muted); margin-top: 3px;
+  font-weight: 500;
+}
+
+/* ============================================================
+   TICKER / TRUST BAR
+============================================================ */
+.ticker {
+  background: var(--s1); border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 0; overflow: hidden;
+}
+.ticker__track {
+  display: flex; gap: 60px; width: max-content;
+  animation: ticker 30s linear infinite;
+}
+@keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+.ticker__item {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 13px; font-weight: 600; color: var(--muted);
+  white-space: nowrap;
+}
+.ticker__item span { color: var(--lime); font-size: 16px; }
+
+/* ============================================================
+   PROBLEM
+============================================================ */
+.problem__intro {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+  align-items: start; margin-bottom: 72px;
+}
+.problem__quote {
+  font-family: var(--display); font-size: clamp(20px,2.4vw,30px);
+  font-weight: 700; line-height: 1.35; color: var(--white);
+  border-left: 3px solid var(--lime); padding-left: 28px;
+  margin-top: 12px;
+}
+.problem__grid {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 1px; background: var(--border);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  overflow: hidden;
+}
+.problem__card {
+  background: var(--s2); padding: 36px 30px;
+  transition: background .2s;
+}
+.problem__card:hover { background: var(--s3); }
+.problem__icon { font-size: 26px; margin-bottom: 14px; }
+.problem__card h3 {
+  font-family: var(--display); font-size: 15px; font-weight: 700;
+  margin-bottom: 9px;
+}
+.problem__card p { font-size: 14px; color: var(--grey); line-height: 1.65; }
+
+/* ============================================================
+   SERVICES
+============================================================ */
+.services__grid {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 1px; background: var(--border);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  overflow: hidden;
+}
+.service {
+  background: var(--s1); padding: 44px 38px;
+  position: relative; transition: background .25s;
+}
+.service::after {
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background: var(--lime); transform:scaleX(0);
+  transform-origin: left; transition: transform .3s;
+}
+.service:hover { background: var(--s2); }
+.service:hover::after { transform: scaleX(1); }
+.service__num {
+  font-size: 11px; font-weight: 700; color: var(--lime); opacity:.55;
+  letter-spacing: .12em; margin-bottom: 22px;
+}
+.service h3 {
+  font-family: var(--display); font-size: 19px; font-weight: 700;
+  margin-bottom: 13px;
+}
+.service p { font-size: 14px; color: var(--grey); line-height: 1.7; margin-bottom: 22px; }
+.service__tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.tag {
+  font-size: 11px; font-weight: 600; padding: 4px 11px;
+  border-radius: 100px; border: 1px solid var(--border);
+  color: var(--muted); letter-spacing: .03em;
+}
+
+/* ============================================================
+   PROCESS
+============================================================ */
+.process__steps {
+  display: flex; flex-direction: column;
+  border: 1px solid var(--border); border-radius: var(--radius);
+  overflow: hidden;
+}
+.process__step {
+  display: grid; grid-template-columns: 90px 1fr;
+  border-bottom: 1px solid var(--border);
+  background: var(--s2); transition: background .2s;
+}
+.process__step:last-child { border-bottom: none; }
+.process__step:hover { background: var(--s3); }
+.step__num {
+  padding: 36px 26px;
+  font-family: var(--display); font-size: 13px; font-weight: 800;
+  color: var(--lime); letter-spacing: .06em;
+  border-right: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+}
+.step__body { padding: 36px 40px; }
+.step__body h3 {
+  font-family: var(--display); font-size: 18px; font-weight: 700;
+  margin-bottom: 9px;
+}
+.step__body p { font-size: 15px; color: var(--grey); line-height: 1.7; }
+
+/* ============================================================
+   WHO WE HELP
+============================================================ */
+.who__grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+}
+.who__box {
+  background: var(--s2); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 44px 40px;
+}
+.who__box h3 {
+  font-family: var(--display); font-size: 20px; font-weight: 700;
+  margin-bottom: 26px; display: flex; align-items: center; gap: 10px;
+}
+.who__box h3 b {
+  display: inline-block; width: 7px; height: 7px;
+  background: var(--lime); border-radius: 50%;
+}
+.who__list { list-style: none; display: flex; flex-direction: column; gap: 13px; }
+.who__list li {
+  display: flex; align-items: flex-start; gap: 11px;
+  font-size: 15px; color: var(--grey);
+}
+.who__list li::before { content:'→'; color:var(--lime); flex-shrink:0; }
+
+.metrics-row {
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 20px;
+  margin-top: 40px;
+}
+.metric-box {
+  background: var(--s2); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 28px 22px; text-align: center;
+  transition: border-color .2s, transform .2s;
+}
+.metric-box:hover { border-color: var(--border-md); transform: translateY(-3px); }
+.metric-n {
+  font-family: var(--display); font-size: 34px; font-weight: 900;
+  color: var(--lime); letter-spacing: -1px;
+}
+.metric-l { font-size: 12px; color: var(--muted); margin-top: 5px; }
+
+/* ============================================================
+   WHY US
+============================================================ */
+.why__grid {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 22px;
+}
+.why__card {
+  background: var(--black); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 34px 30px;
+  transition: border-color .25s, transform .25s;
+}
+.why__card:hover { border-color: var(--border-md); transform: translateY(-4px); }
+.why__icon {
+  width: 44px; height: 44px;
+  background: var(--lime-10); border: 1px solid var(--border-md);
+  border-radius: 10px; display: flex; align-items: center;
+  justify-content: center; font-size: 20px; margin-bottom: 20px;
+}
+.why__card h3 {
+  font-family: var(--display); font-size: 16px; font-weight: 700;
+  margin-bottom: 10px;
+}
+.why__card p { font-size: 14px; color: var(--grey); line-height: 1.7; }
+
+/* ============================================================
+   TRANSFORMATION
+============================================================ */
+.transform__grid {
+  display: grid; grid-template-columns: 1fr 64px 1fr;
+  align-items: center; gap: 0;
+}
+.transform__box {
+  background: var(--s2); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 40px 36px;
+}
+.transform__box h3 {
+  font-family: var(--display); font-size: 13px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .1em; color: var(--muted);
+  margin-bottom: 24px;
+}
+.transform__box.after h3 { color: var(--lime); }
+.transform__list { list-style: none; display: flex; flex-direction: column; gap: 13px; }
+.transform__list li {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 15px; color: var(--grey);
+}
+.transform__list.before li::before { content:'✕'; color:var(--muted); font-size:12px; flex-shrink:0; margin-top:2px; }
+.transform__list.after  li { color: var(--white); }
+.transform__list.after  li::before { content:'✓'; color:var(--lime); font-size:13px; flex-shrink:0; margin-top:2px; }
+.transform__arrow { text-align: center; font-size: 28px; color: var(--lime); }
+
+/* ============================================================
+   INCLUDED
+============================================================ */
+.included__grid {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 1px; background: var(--border);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  overflow: hidden;
+}
+.included__block { background: var(--s1); padding: 38px 34px; }
+.included__block h3 {
+  font-family: var(--display); font-size: 16px; font-weight: 700;
+  color: var(--lime); margin-bottom: 22px;
+}
+.included__list { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+.included__list li {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 14px; color: var(--grey); line-height: 1.5;
+}
+.included__list li::before { content:'✓'; color:var(--lime); font-size:13px; flex-shrink:0; margin-top:1px; }
+
+/* ============================================================
+   CLIENTS
+============================================================ */
+.clients__grid {
+  display: grid; grid-template-columns: repeat(2,1fr); gap: 22px;
+}
+.client__card {
+  background: var(--s2); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 36px 32px;
+  transition: border-color .2s;
+}
+.client__card:hover { border-color: var(--border-md); }
+.client__avatar {
+  width: 52px; height: 52px; border-radius: 12px;
+  background: var(--lime); display: flex; align-items: center;
+  justify-content: center; font-family: var(--display);
+  font-weight: 900; font-size: 18px; color: #000;
+  margin-bottom: 20px;
+}
+.client__name {
+  font-family: var(--display); font-size: 17px; font-weight: 700;
+  margin-bottom: 4px;
+}
+.client__role { font-size: 13px; color: var(--lime-dim); font-weight: 500; margin-bottom: 16px; }
+.client__desc { font-size: 14px; color: var(--grey); line-height: 1.7; margin-bottom: 18px; }
+.client__tags { display: flex; flex-wrap: wrap; gap: 7px; }
+
+/* ============================================================
+   ENGAGEMENT
+============================================================ */
+.engagement__inner {
+  max-width: 740px; margin: 0 auto;
+  background: var(--s1); border: 1px solid var(--border);
+  border-radius: 20px; padding: 68px 52px; text-align: center;
+  position: relative; overflow: hidden;
+}
+.engagement__inner::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:3px;
+  background: linear-gradient(90deg, transparent, var(--lime), transparent);
+}
+.engagement__num {
+  font-family: var(--display); font-size: 100px; font-weight: 900;
+  color: var(--lime); line-height: 1; letter-spacing: -5px;
+  margin-bottom: 6px;
+}
+.engagement__unit {
+  font-size: 13px; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 36px;
+}
+.engagement__inner h3 {
+  font-family: var(--display); font-size: 26px; font-weight: 700;
+  margin-bottom: 16px;
+}
+.engagement__inner p { color: var(--grey); font-size: 16px; line-height: 1.75; margin-bottom: 30px; }
+.pills { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+.pill {
+  background: var(--lime-10); border: 1px solid var(--border-md);
+  border-radius: 100px; padding: 7px 18px;
+  font-size: 13px; color: var(--lime); font-weight: 500;
+}
+
+/* ============================================================
+   OUTCOMES
+============================================================ */
+.outcomes__grid {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 22px;
+}
+.outcome__card {
+  background: var(--s2); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 34px 30px;
+  transition: border-color .2s, transform .2s;
+}
+.outcome__card:hover { border-color: var(--border-md); transform: translateY(-3px); }
+.outcome__icon {
+  width: 42px; height: 42px; background: var(--lime-10);
+  border: 1px solid var(--border-md); border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; margin-bottom: 18px;
+}
+.outcome__card h3 { font-family: var(--display); font-size: 15px; font-weight: 700; margin-bottom: 9px; }
+.outcome__card p { font-size: 14px; color: var(--grey); line-height: 1.65; }
+
+/* ============================================================
+   CTA SECTION
+============================================================ */
+.cta-section {
+  padding: 130px 28px; text-align: center;
+  background: var(--s1); position: relative; overflow: hidden;
+}
+.cta-section::before {
+  content:''; position:absolute;
+  bottom:-250px; left:50%; transform:translateX(-50%);
+  width:700px; height:700px;
+  background: radial-gradient(circle, rgba(170,221,0,.09) 0%, transparent 68%);
+  pointer-events: none;
+}
+.cta-section h2 {
+  font-family: var(--display);
+  font-size: clamp(34px,5vw,60px);
+  font-weight: 800; letter-spacing: -2px;
+  max-width: 720px; margin: 0 auto 24px;
+}
+.cta-section h2 em { font-style: normal; color: var(--lime); }
+.cta-section p { font-size: 18px; color: var(--grey); margin-bottom: 44px; }
+.cta-meta {
+  margin-top: 26px; font-size: 13px; color: var(--muted);
+  display: flex; align-items: center; justify-content: center;
+  gap: 6px; flex-wrap: wrap;
+}
+.cta-meta-sep { opacity: .3; }
+.cta-actions {
+  display: flex; align-items: center; justify-content: center;
+  gap: 16px; flex-wrap: wrap; margin-bottom: 12px;
+}
+.btn-trial-outline {
+  display: inline-block;
+  border: 1.5px solid var(--lime); color: var(--lime);
+  padding: 14px 32px; border-radius: 9px;
+  font-weight: 800; font-size: 15px;
+  transition: background .2s, color .2s, transform .2s;
+}
+.btn-trial-outline:hover {
+  background: var(--lime); color: #000;
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   FREE TRIAL SECTION
+============================================================ */
+.trial { padding: 110px 28px; }
+.trial__card {
+  position: relative; overflow: hidden;
+  background: linear-gradient(160deg, var(--s2) 0%, var(--s1) 100%);
+  border: 1px solid var(--border-md);
+  border-radius: 24px;
+  box-shadow: 0 0 0 1px rgba(170,221,0,.06), 0 30px 80px -20px rgba(170,221,0,.15);
+}
+.trial__glow {
+  position: absolute; top: -120px; right: -100px;
+  width: 480px; height: 480px;
+  background: radial-gradient(circle, rgba(170,221,0,.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+.trial__ribbon {
+  position: absolute; top: 24px; right: -54px;
+  background: var(--lime); color: #000;
+  font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+  padding: 6px 60px; transform: rotate(40deg);
+  box-shadow: 0 4px 14px rgba(0,0,0,.4);
+  z-index: 2;
+}
+.trial__inner {
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: 1.3fr 1fr;
+  gap: 56px; align-items: center;
+  padding: 64px 60px;
+}
+.trial__title {
+  font-family: var(--display);
+  font-size: clamp(28px,3.6vw,42px);
+  font-weight: 800; letter-spacing: -1.3px; line-height: 1.1;
+  margin-bottom: 22px;
+}
+.trial__title em { font-style: normal; color: var(--lime); }
+.trial__sub {
+  font-size: 16px; color: var(--grey); line-height: 1.75;
+  max-width: 480px; margin-bottom: 26px;
+}
+.trial__list {
+  list-style: none; display: flex; flex-direction: column; gap: 12px;
+}
+.trial__list li {
+  font-size: 14.5px; color: var(--white);
+  display: flex; align-items: flex-start; gap: 10px;
+}
+.trial__list li::before {
+  content: '✓'; color: var(--lime); font-weight: 800;
+  flex-shrink: 0; margin-top: 1px;
+}
+.trial__right { display: flex; justify-content: center; }
+.trial__pricebox {
+  background: var(--black);
+  border: 1px solid var(--border-md);
+  border-radius: 18px;
+  padding: 40px 36px;
+  text-align: center;
+  width: 100%; max-width: 320px;
+}
+.trial__was {
+  font-size: 13px; color: var(--muted);
+  text-decoration: line-through; margin-bottom: 6px;
+}
+.trial__now {
+  font-family: var(--display);
+  font-size: 64px; font-weight: 900; color: var(--lime);
+  letter-spacing: -2px; line-height: 1;
+}
+.trial__period {
+  font-size: 13px; color: var(--grey);
+  text-transform: uppercase; letter-spacing: .06em;
+  margin: 6px 0 28px;
+}
+.btn-trial {
+  display: block; width: 100%;
+  background: var(--lime); color: #000;
+  padding: 16px 20px; border-radius: 10px;
+  font-weight: 800; font-size: 14.5px;
+  box-shadow: 0 0 30px rgba(170,221,0,.3);
+  transition: background .2s, transform .2s, box-shadow .2s;
+}
+.btn-trial:hover {
+  background: var(--lime-bright);
+  transform: translateY(-2px);
+  box-shadow: 0 0 44px rgba(170,221,0,.45);
+}
+.trial__note {
+  font-size: 11.5px; color: var(--muted); margin-top: 14px;
+}
+
+@media (max-width: 860px) {
+  .trial__inner { grid-template-columns: 1fr; padding: 48px 32px; gap: 40px; }
+  .trial__sub { max-width: none; }
+  .trial__ribbon { top: 18px; right: -60px; }
+}
+
+/* ============================================================
+   FOOTER
+============================================================ */
+footer {
+  background: var(--black);
+  border-top: 1px solid var(--border);
+  padding: 70px 0 0;
+}
+.footer__inner {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px; margin-bottom: 56px;
+}
+.footer__brand .nav__mark-img { height: 48px; }
+.footer__brand p {
+  font-size: 14px; color: var(--muted); line-height: 1.75;
+  margin-top: 16px; max-width: 260px;
+}
+.footer__brand-links {
+  display: flex; gap: 16px; margin-top: 22px;
+}
+.footer__brand-links a {
+  font-size: 13px; font-weight: 600; color: var(--lime);
+  transition: opacity .2s;
+}
+.footer__brand-links a:hover { opacity: .7; }
+.footer__col h4 {
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .12em; color: var(--muted); margin-bottom: 20px;
+}
+.footer__col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.footer__col ul a { font-size: 14px; color: var(--grey); transition: color .2s; }
+.footer__col ul a:hover { color: var(--lime); }
+.footer__bottom {
+  border-top: 1px solid var(--border);
+  padding: 22px 0;
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 13px; color: var(--muted);
+}
+.footer__bottom a { color: var(--grey); transition: color .2s; }
+.footer__bottom a:hover { color: var(--lime); }
+
+/* ============================================================
+   REVEAL ANIMATIONS
+============================================================ */
+.reveal {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity .65s ease, transform .65s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+@media (max-width: 900px) {
+  .nav__links { display: none; }
+  .nav__hamburger { display: flex; }
+  .nav__mobile-menu.open { display: flex; }
+
+  .problem__intro { grid-template-columns: 1fr; gap: 36px; }
+  .problem__grid   { grid-template-columns: 1fr 1fr; }
+  .services__grid  { grid-template-columns: 1fr; }
+  .process__step   { grid-template-columns: 70px 1fr; }
+  .who__grid       { grid-template-columns: 1fr; }
+  .metrics-row     { grid-template-columns: repeat(2,1fr); }
+  .why__grid       { grid-template-columns: 1fr 1fr; }
+  .transform__grid { grid-template-columns: 1fr; gap: 20px; }
+  .transform__arrow { transform: rotate(90deg); font-size: 22px; }
+  .included__grid  { grid-template-columns: 1fr 1fr; }
+  .clients__grid   { grid-template-columns: 1fr; }
+  .outcomes__grid  { grid-template-columns: 1fr 1fr; }
+  .footer__inner   { grid-template-columns: 1fr 1fr; }
+  .footer__bottom  { flex-direction: column; gap: 10px; text-align: center; }
+  .engagement__inner { padding: 48px 28px; }
+  .engagement__num { font-size: 72px; }
+  .section { padding: 80px 0; }
+}
+
+@media (max-width: 600px) {
+  .problem__grid  { grid-template-columns: 1fr; }
+  .why__grid      { grid-template-columns: 1fr; }
+  .included__grid { grid-template-columns: 1fr; }
+  .outcomes__grid { grid-template-columns: 1fr; }
+  .metrics-row    { grid-template-columns: repeat(2,1fr); }
+  .hero__stats    { flex-direction: column; }
+  .hero__stat     { border-right: none; border-bottom: 1px solid var(--border); }
+  .hero__stat:last-child { border-bottom: none; }
+  .footer__inner  { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ======================================================
+  NAV
+====================================================== -->
+<!-- Announcement strip -->
+<a href="mailto:Link2leadagency@gmail.com?subject=Interested%20in%20your%20Free%20Trial%20Month&body=Hey%2C%20I%20am%20interested%20in%20your%20service." class="trial-strip" id="trial-strip">
+  <span class="trial-strip__dot"></span>
+  Limited Offer — Get your <strong>first month free</strong> when you onboard this quarter
+  <span class="trial-strip__arrow">→</span>
+</a>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="#" class="nav__logo">
+      <img src="logo.jpg" alt="Link2Lead" class="nav__mark-img" />
+    </a>
+    <ul class="nav__links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#who">Who We Help</a></li>
+      <li><a href="#clients">Clients</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#free-trial">Free Trial</a></li>
+      <li><a href="mailto:Link2leadagency@gmail.com?subject=Interested%20in%20your%20Free%20Trial%20Month&body=Hey%2C%20I%20am%20interested%20in%20your%20service." class="nav__cta nav__cta--trial">First Month Free Trial</a></li>
+      <li><a href="https://calendly.com/link2leadagency/30min" target="_blank" class="nav__cta">Book a Call →</a></li>
+    </ul>
+    <div class="nav__hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="nav__mobile-menu" id="mobile-menu">
+  <a href="#services"   onclick="closeMobile()">Services</a>
+  <a href="#process"    onclick="closeMobile()">Process</a>
+  <a href="#who"        onclick="closeMobile()">Who We Help</a>
+  <a href="#clients"    onclick="closeMobile()">Clients</a>
+  <a href="#why"        onclick="closeMobile()">Why Us</a>
+  <a href="mailto:Link2leadagency@gmail.com?subject=Interested%20in%20your%20Free%20Trial%20Month&body=Hey%2C%20I%20am%20interested%20in%20your%20service." class="nav__mobile-cta nav__mobile-cta--trial">Claim Your First Month Free Trial →</a>
+  <a href="https://calendly.com/link2leadagency/30min" target="_blank" class="nav__mobile-cta">Book a Discovery Call →</a>
+</div>
+
+<!-- ======================================================
+  HERO
+====================================================== -->
+<section class="hero" id="home">
+  <div class="hero__glow"></div>
+  <div class="hero__grid"></div>
+
+  <div style="position:relative; z-index:1;">
+    <div class="hero__badge">
+      <div class="hero__badge-dot"></div>
+      LinkedIn-Driven B2B Outbound Agency
+    </div>
+
+    <a href="mailto:Link2leadagency@gmail.com?subject=Interested%20in%20your%20Free%20Trial%20Month&body=Hey%2C%20I%20am%20interested%20in%20your%20service." class="hero__trial-badge">
+      🎁 First Month Free Trial for New Clients — Claim Yours
+    </a>
+
+    <h1 class="hero__h1">
+      We Don't Just<br/>Generate Leads.<br/><em>We Build Pipeline.</em>
+    </h1>
+
+    <p class="hero__sub">
+      Link2Lead helps founder-led B2B companies generate qualified meetings through LinkedIn-driven outbound systems — without building a full sales team.
+    </p>
+
+    <div class="hero__actions">
+      <a class="btn-primary" href="https://calendly.com/link2leadagency/30min" target="_blank">Book a Discovery Call →</a>
+      <a class="btn-ghost" href="#services">Explore Services</a>
+    </div>
+
+    <div class="hero__stats">
+      <div class="hero__stat">
+        <span class="hero__stat-n">6-Step</span>
+        <div class="hero__stat-l">Proven Growth System</div>
+      </div>
+      <div class="hero__stat">
+        <span class="hero__stat-n">US / UK</span>
+        <div class="hero__stat-l">Global Market Focus</div>
+      </div>
+      <div class="hero__stat">
+        <span class="hero__stat-n">3 Mo+</span>
+        <div class="hero__stat-l">Engagement Minimum</div>
+      </div>
+      <div class="hero__stat">
+        <span class="hero__stat-n">DFY</span>
+        <div class="hero__stat-l">Done-For-You Execution</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+  TRUST TICKER
+====================================================== -->
+<div class="ticker">
+  <div class="ticker__track" id="ticker">
+    <div class="ticker__item"><span>✦</span> IT Service Companies</div>
+    <div class="ticker__item"><span>✦</span> SaaS Startups</div>
+    <div class="ticker__item"><span>✦</span> AI Companies</div>
+    <div class="ticker__item"><span>✦</span> Cybersecurity Firms</div>
+    <div class="ticker__item"><span>✦</span> Cloud Consulting</div>
+    <div class="ticker__item"><span>✦</span> Digital Transformation</div>
+    <div class="ticker__item"><span>✦</span> ERP & SAP Partners</div>
+    <div class="ticker__item"><span>✦</span> Salesforce Partners</div>
+    <div class="ticker__item"><span>✦</span> AWS Partners</div>
+    <div class="ticker__item"><span>✦</span> MSPs</div>
+    <div class="ticker__item"><span>✦</span> B2B Agencies</div>
+    <div class="ticker__item"><span>✦</span> Consulting Firms</div>
+    <!-- duplicate for seamless loop -->
+    <div class="ticker__item"><span>✦</span> IT Service Companies</div>
+    <div class="ticker__item"><span>✦</span> SaaS Startups</div>
+    <div class="ticker__item"><span>✦</span> AI Companies</div>
+    <div class="ticker__item"><span>✦</span> Cybersecurity Firms</div>
+    <div class="ticker__item"><span>✦</span> Cloud Consulting</div>
+    <div class="ticker__item"><span>✦</span> Digital Transformation</div>
+    <div class="ticker__item"><span>✦</span> ERP & SAP Partners</div>
+    <div class="ticker__item"><span>✦</span> Salesforce Partners</div>
+    <div class="ticker__item"><span>✦</span> AWS Partners</div>
+    <div class="ticker__item"><span>✦</span> MSPs</div>
+    <div class="ticker__item"><span>✦</span> B2B Agencies</div>
+    <div class="ticker__item"><span>✦</span> Consulting Firms</div>
+  </div>
+</div>
+
+<!-- ======================================================
+  PROBLEM
+====================================================== -->
+<section class="section section--dark" id="problem">
+  <div class="wrap">
+    <div class="problem__intro reveal">
+      <div>
+        <div class="label"><div class="label-dot"></div>The Problem</div>
+        <h2 class="heading">Most B2B founders don't have a sales problem.<br/><em>They have a pipeline problem.</em></h2>
+        <p class="sub">Referrals slow down. Cold outreach gets ignored. The LinkedIn profile communicates nothing. Revenue becomes unpredictable — and the founder ends up doing everything manually.</p>
+      </div>
+      <div>
+        <div class="problem__quote">"Cold outreach without authority gets ignored. Authority + Outreach = Qualified Conversations."</div>
+      </div>
+    </div>
+
+    <div class="problem__grid reveal">
+      <div class="problem__card">
+        <div class="problem__icon">🔁</div>
+        <h3>Referral Dependency</h3>
+        <p>When the referral tap slows, there's no system generating consistent new conversations.</p>
+      </div>
+      <div class="problem__card">
+        <div class="problem__icon">📭</div>
+        <h3>Outreach Gets Ignored</h3>
+        <p>Generic templates and mass automation kill response rates before a conversation starts.</p>
+      </div>
+      <div class="problem__card">
+        <div class="problem__icon">👤</div>
+        <h3>Weak LinkedIn Presence</h3>
+        <p>Decision-makers check your profile before replying. No authority means no replies.</p>
+      </div>
+      <div class="problem__card">
+        <div class="problem__icon">📉</div>
+        <h3>No Predictable Pipeline</h3>
+        <p>Without a repeatable system, sales cycles become inconsistent and revenue is impossible to forecast.</p>
+      </div>
+      <div class="problem__card">
+        <div class="problem__icon">⏰</div>
+        <h3>Founder Time Bottleneck</h3>
+        <p>Founders handling outreach manually leaves no time for delivery, strategy, or running the business.</p>
+      </div>
+      <div class="problem__card">
+        <div class="problem__icon">🏢</div>
+        <h3>No Sales Team Yet</h3>
+        <p>Hiring an SDR team too early is expensive. Most founders need a system first — not headcount.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ======================================================
+  SERVICES
+====================================================== -->
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section-header reveal" style="margin-bottom:60px;">
+      <div class="label"><div class="label-dot"></div>What We Do</div>
+      <h2 class="heading">One system.<br/>Everything <em>done for you.</em></h2>
+      <p class="sub">We handle the entire LinkedIn outbound engine — from positioning to pipeline — so your team can focus on closing.</p>
+    </div>
+
+    <div class="services__grid reveal">
+      <div class="service">
+        <div class="service__num">SERVICE 01</div>
+        <h3>LinkedIn Profile Optimization</h3>
+        <p>Your profile is the first thing prospects check before replying. We transform it into a 24/7 credibility asset — headline, about section, banner, positioning.</p>
+        <div class="service__tags">
+          <span class="tag">Headline Writing</span>
+          <span class="tag">About Section</span>
+          <span class="tag">Credibility Signals</span>
+        </div>
+      </div>
+      <div class="service">
+        <div class="service__num">SERVICE 02</div>
+        <h3>Founder Personal Branding</h3>
+        <p>Prospects buy from people they trust. We build your authority through strategic positioning so decision-makers already know who you are before your message lands.</p>
+        <div class="service__tags">
+          <span class="tag">Authority Building</span>
+          <span class="tag">Positioning Strategy</span>
+          <span class="tag">Thought Leadership</span>
+        </div>
+      </div>
+      <div class="service">
+        <div class="service__num">SERVICE 03</div>
+        <h3>LinkedIn Content System</h3>
+        <p>Strategic content that warms up your audience before outreach begins. Every post attracts your ideal client and builds trust at scale.</p>
+        <div class="service__tags">
+          <span class="tag">Content Strategy</span>
+          <span class="tag">Post Writing</span>
+          <span class="tag">Content Calendar</span>
+        </div>
+      </div>
+      <div class="service">
+        <div class="service__num">SERVICE 04</div>
+        <h3>Market Research & ICP Targeting</h3>
+        <p>We identify exactly who to target based on your service, positioning, and market. No spray-and-pray — every prospect is a qualified fit before we reach out.</p>
+        <div class="service__tags">
+          <span class="tag">ICP Definition</span>
+          <span class="tag">Audience Research</span>
+          <span class="tag">Prospect Lists</span>
+        </div>
+      </div>
+      <div class="service">
+        <div class="service__num">SERVICE 05</div>
+        <h3>Personalized Outreach Campaigns</h3>
+        <p>Targeted connection requests and thoughtful follow-up sequences that feel founder-to-founder — not automated and spammy. Quality over volume, always.</p>
+        <div class="service__tags">
+          <span class="tag">Connection Requests</span>
+          <span class="tag">DM Management</span>
+          <span class="tag">Follow-Up Sequences</span>
+        </div>
+      </div>
+      <div class="service">
+        <div class="service__num">SERVICE 06</div>
+        <h3>Appointment Setting</h3>
+        <p>We handle conversations and qualify prospects so only the right people land on your calendar. You show up for discovery calls — we handle everything before that.</p>
+        <div class="service__tags">
+          <span class="tag">Lead Qualification</span>
+          <span class="tag">Meeting Booking</span>
+          <span class="tag">Pipeline Tracking</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ======================================================
+  PROCESS
+====================================================== -->
+<section class="section section--dark" id="process">
+  <div class="wrap">
+    <div class="section-header reveal" style="margin-bottom:60px;">
+      <div class="label"><div class="label-dot"></div>The System</div>
+      <h2 class="heading">The Link2Lead<br/><em>6-Step Growth Process</em></h2>
+      <p class="sub">A complete, repeatable outbound engine built around your business, your audience, and your positioning.</p>
+    </div>
+
+    <div class="process__steps reveal">
+      <div class="process__step">
+        <div class="step__num">01</div>
+        <div class="step__body">
+          <h3>LinkedIn Profile Optimization</h3>
+          <p>We position your profile to increase credibility, trust, and connection acceptance rates. Your profile becomes the anchor of every outbound touchpoint.</p>
+        </div>
+      </div>
+      <div class="process__step">
+        <div class="step__num">02</div>
+        <div class="step__body">
+          <h3>Authority Content System</h3>
+          <p>We create strategic content that builds trust before outreach begins. Prospects start recognising your name before you send the first message.</p>
+        </div>
+      </div>
+      <div class="process__step">
+        <div class="step__num">03</div>
+        <div class="step__body">
+          <h3>Market Research & ICP Targeting</h3>
+          <p>We identify your ideal audience based on your service, positioning, and market. Every prospect on the list is a qualified fit — not filler.</p>
+        </div>
+      </div>
+      <div class="process__step">
+        <div class="step__num">04</div>
+        <div class="step__body">
+          <h3>Personalized Outreach Campaigns</h3>
+          <p>Targeted connection requests and personalized messages sent to qualified decision-makers. Founder-to-founder tone. No automation spray.</p>
+        </div>
+      </div>
+      <div class="process__step">
+        <div class="step__num">05</div>
+        <div class="step__body">
+          <h3>Conversation & Follow-Up Management</h3>
+          <p>We handle engagement, nurture conversations professionally, and keep momentum alive. No lead falls through the cracks.</p>
+        </div>
+      </div>
+      <div class="process__step">
+        <div class="step__num">06</div>
+        <div class="step__body">
+          <h3>Appointment Setting & Pipeline Reporting</h3>
+          <p>We generate qualified discovery calls with people genuinely interested in what you offer. Monthly reports give you full visibility of what's working.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ======================================================
+  WHO WE HELP
+====================================================== -->
+<section class="section" id="who">
+  <div class="wrap">
+    <div class="section-header reveal" style="margin-bottom:60px;">
+      <div class="label"><div class="label-dot"></div>Who We Help</div>
+      <h2 class="heading">Built for<br/><em>founder-led B2B companies.</em></h2>
+      <p class="sub">We work best with lean, founder-led teams targeting global markets without a structured outbound system in place.</p>
+    </div>
+
+    <div class="who__grid reveal">
+      <div class="who__box">
+        <h3><b></b> Industries We Serve</h3>
+        <ul class="who__list">
+          <li>IT Service & Consulting Companies</li>
+          <li>SaaS Startups & Scale-Ups</li>
+          <li>AI & Machine Learning Companies</li>
+          <li>Cybersecurity Firms</li>
+          <li>Cloud & Digital Transformation Companies</li>
+          <li>ERP, SAP & Microsoft Partners</li>
+          <li>Managed Service Providers (MSPs)</li>
+          <li>B2B Agencies & Consulting Firms</li>
+          <li>Healthcare Technology Companies</li>
+          <li>Salesforce, AWS & ServiceNow Partners</li>
+        </ul>
+      </div>
+      <div class="who__box">
+        <h3><b></b> Best Fit Profile</h3>
+        <ul class="who__list">
+          <li>Founder-led companies (0–50 employees)</li>
+          <li>Targeting US, UK, or MENA markets</li>
+          <li>No structured outbound system in place</li>
+          <li>Founder currently handling sales themselves</li>
+          <li>Strong product but weak LinkedIn positioning</li>
+          <li>Looking for qualified meetings — not vanity metrics</li>
+          <li>Ready for a minimum 3-month engagement</li>
+          <li>Decision-makers: CEO, CRO, VP Sales, Founder</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="metrics-row reveal">
+      <div class="metric-box">
+        <div class="metric-n">US / UK</div>
+        <div class="metric-l">Primary Target Markets</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-n">MENA</div>
+        <div class="metric-l">Expanding Market Focus</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-n">0 – 50</div>
+        <div class="metric-l">Ideal Company Size</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-n">3 Mo+</div>
+        <div class="metric-l">Minimum Engagement</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ======================================================
+  WHY US + TRANSFORMATION
+====================================================== -->
+<section class="section section--dark" id="why">
+  <div class="wrap">
+    <div class="section-header reveal" style="margin-bottom:60px;">
+      <div class="label"><div class="label-dot"></div>Why Link2Lead</div>
+      <h2 class="heading">We don't just generate leads.<br/><em>We build your pipeline infrastructure.</em></h2>
+      <p class="sub">Most agencies focus only on volume or only on content. We combine positioning, authority, and outreach under one system — because modern B2B sales requires all three.</p>
+    </div>
+
+    <div class="why__grid reveal">
+      <div class="why__card">
+        <div class="why__icon">🎯</div>
+        <h3>Quality Over Spam</h3>
+        <p>We never send mass automated messages. Every outreach is researched, personalized, and designed to start a real conversation.</p>
+      </div>
+      <div class="why__card">
+        <div class="why__icon">🏗️</div>
+        <h3>Positioning First</h3>
+        <p>Authority isn't an afterthought. We build your credibility before outreach begins, so response rates are higher from day one.</p>
+      </div>
+      <div class="why__card">
+        <div class="why__icon">🤝</div>
+        <h3>Founder-to-Founder Tone</h3>
+        <p>Our outreach sounds like a strategic peer, not a sales rep. Decision-makers respond because it doesn't feel like outreach.</p>
+      </div>
+      <div class="why__card">
+        <div class="why__icon">🔄</div>
+        <h3>Systems That Compound</h3>
+        <p>We build repeatable infrastructure. Campaigns improve over time. Messaging gets refined. Pipeline becomes predictable.</p>
+      </div>
+      <div class="why__card">
+        <div class="why__icon">📊</div>
+        <h3>Full Transparency</h3>
+        <p>Monthly reports, Notion client portal, and weekly updates. You always know what's running, what's working, and what's next.</p>
+      </div>
+      <div class="why__card">
+        <div class="why__icon">🌍</div>
+        <h3>Global Market Access</h3>
+        <p>We help founder-led companies break into the US, UK, and MENA markets where trust from offshore teams is hard to build quickly.</p>
+      </div>
+    </div>
+
+    <!-- TRANSFORMATION -->
+    <div style="margin-top:72px;">
+      <div class="label reveal"><div class="label-dot"></div>The Transformation</div>
+      <div class="transform__grid reveal">
+        <div class="transform__box">
+          <h3>Before Link2Lead</h3>
+          <ul class="transform__list before">
+            <li>Inconsistent, unpredictable lead flow</li>
+            <li>Over-reliance on referrals</li>
+            <li>Weak LinkedIn positioning</li>
+            <li>Generic outreach that gets ignored</li>
+            <li>No structured outbound system</li>
+            <li>Founder overwhelmed by sales</li>
+            <li>Revenue impossible to forecast</li>
+          </ul>
+        </div>
+        <div class="transform__arrow">→</div>
+        <div class="transform__box after">
+          <h3>After Link2Lead</h3>
+          <ul class="transform__list after">
+            <li>Qualified meetings booked consistently</li>
+            <li>Strong LinkedIn authority and credibility</li>
+            <li>Repeatable outbound infrastructure</li>
+            <li>Personalized campaigns that convert</li>
+            <li>Clear ICP and market positioning</li>
+            <li>Founder focused on closing, not chasing</li>
+            <li>Predictable, scalable B2B pipeline</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ======================================================
+  WHAT'S INCLUDED
+====================================================== -->
+<section class="section" id="included">
+  <div class="wrap">
+    <div class="section-header reveal" style="margin-bottom:60px;">
+      <div class="label"><div class="label-dot"></div>What's Included</div>
+      <h2 class="heading">Every retainer includes<br/><em>the complete system.</em></h2>
+      <p class="sub">No fragmented services. One fully integrated outbound growth system, delivered every month.</p>
+    </div>
+
+    <div class="included__grid reveal">
+      <div class="included__block">
+        <h3>LinkedIn Optimization</h3>
+        <ul class="included__list">
+          <li>Founder profile positioning</li>
+          <li>Headline optimization</li>
+          <li>About section refinement</li>
+          <li>Credibility & trust signals</li>
+          <li>Profile CTA optimization</li>
+        </ul>
+      </div>
+      <div class="included__block">
+        <h3>Content System</h3>
+        <ul class="included__list">
+          <li>Content strategy & pillars</li>
+          <li>LinkedIn post writing</li>
+          <li>Authority-building content</li>
+          <li>Personal brand positioning</li>
+          <li>Content calendar & planning</li>
+        </ul>
+      </div>
+      <div class="included__block">
+        <h3>Lead Generation</h3>
+        <ul class="included__list">
+          <li>ICP identification & targeting</li>
+          <li>Prospect list building</li>
+          <li>Market & competitor research</li>
+          <li>Audience segmentation</li>
+          <li>Account-level targeting</li>
+        </ul>
+      </div>
+      <div class="included__block">
+        <h3>Outreach & Campaigns</h3>
+        <ul class="included__list">
+          <li>Personalized connection requests</li>
+          <li>LinkedIn outreach sequences</li>
+          <li>Follow-up message management</li>
+          <li>Conversation handling & DMs</li>
+          <li>Campaign management</li>
+        </ul>
+      </div>
+      <div class="included__block">
+        <h3>Appointment Setting</h3>
+        <ul class="included__list">
+          <li>Lead qualification</li>
+          <li>Meeting booking & coordination</li>
+          <li>Pipeline support</li>
+          <li>Outreach activity tracking</li>
+          <li>Opportunity management</li>
+        </ul>
+      </div>
+      <div class="included__block">
+        <h3>Reporting & Strategy</h3>
+        <ul class="included__list">
+          <li>Monthly performance reports</li>
+          <li>Outreach & content metrics</li>
+          <li>Notion client portal access</li>
+          <li>Ongoing optimization</li>
+          <li>Strategic recommendations</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ======================================================
+  CLIENTS
+====================================================== -->
+<section class="section section--dark" id="clients">
+  <div class="wrap">
+    <div class="section-header reveal" style="margin-bottom:60px;">
+      <div class="label"><div class="label-dot"></div>Our Clients</div>
+      <h2 class="heading">We build authority for the founders<br/><em>your buyers want to hear from.</em></h2>
+      <p class="sub">We manage LinkedIn outbound and personal branding for executives across technology, cybersecurity, cloud, and B2B services — globally.</p>
+    </div>
+
+    <div class="clients__grid reveal">
+      <div class="client__card">
+        <div class="client__avatar">RG</div>
+        <div class="client__name">Raja Gopala Iyer</div>
+        <div class="client__role">Enterprise Leadership & Digital Transformation</div>
+        <p class="client__desc">Executive thought leadership content and outbound strategy focused on enterprise strategy, leadership, and digital transformation for global decision-makers.</p>
+        <div class="client__tags">
+          <span class="tag">Digital Transformation</span>
+          <span class="tag">Enterprise Strategy</span>
+          <span class="tag">Executive Branding</span>
+        </div>
+      </div>
+      <div class="client__card">
+        <div class="client__avatar">UR</div>
+        <div class="client__name">Uma Ramani</div>
+        <div class="client__role">Cybersecurity Strategist · 21+ Years in GRC</div>
+        <p class="client__desc">Positioning Uma as a vendor-neutral cybersecurity thought leader in GRC, AI governance, and digital trust — reaching CISOs and boards across financial services and banking.</p>
+        <div class="client__tags">
+          <span class="tag">Cybersecurity</span>
+          <span class="tag">GRC</span>
+          <span class="tag">AI Governance</span>
+        </div>
+      </div>
+      <div class="client__card">
+        <div class="client__avatar">SM</div>
+        <div class="client__name">Siva Manickam</div>
+        <div class="client__role">Director of Engineering · Cloud & AI Architecture</div>
+        <p class="client__desc">Thought leadership for a Fortune 100-experienced engineering leader in enterprise AI, agentic AI, cloud architecture, and digital transformation targeting global enterprise buyers.</p>
+        <div class="client__tags">
+          <span class="tag">Enterprise AI</span>
+          <span class="tag">Cloud Architecture</span>
+          <span class="tag">AWS</span>
+        </div>
+      </div>
+      <div class="client__card">
+        <div class="client__avatar">SI</div>
+        <div class="client__name">Siddiq Musaliar</div>
+        <div class="client__role">Founder · Advantage Marketing Solutions</div>
+        <p class="client__desc">Performance marketing agency positioning and outbound strategy — helping Siddiq attract restaurant, healthcare, and education sector clients through a results-first founder brand.</p>
+        <div class="client__tags">
+          <span class="tag">Performance Marketing</span>
+          <span class="tag">Agency Growth</span>
+          <span class="tag">Meta & Google Ads</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ======================================================
+  ENGAGEMENT MODEL
+====================================================== -->
+<section class="section" id="engagement">
+  <div class="wrap">
+    <div class="section-header reveal" style="text-align:center; margin: 0 auto 60px; max-width:620px;">
+      <div class="label" style="justify-content:center;"><div class="label-dot"></div>Engagement Model</div>
+      <h2 class="heading">This is a<br/><em>long-term growth system.</em></h2>
+      <p class="sub" style="margin:0 auto;">Not a "quick leads" service. We build infrastructure that compounds — and that takes consistency.</p>
+    </div>
+
+    <div class="reveal">
+      <div class="engagement__inner">
+        <div class="engagement__num">3</div>
+        <div class="engagement__unit">Month Minimum Engagement</div>
+        <h3>Why does it take 3 months?</h3>
+        <p>Authority takes time to build. Outbound campaigns improve with optimization. Messaging gets refined through real conversations. Relationships compound. Pipeline consistency requires a functioning system — not a one-week sprint.</p>
+        <div class="pills">
+          <span class="pill">Authority compounds</span>
+          <span class="pill">Messaging gets refined</span>
+          <span class="pill">Outreach improves with data</span>
+          <span class="pill">Trust builds gradually</span>
+          <span class="pill">Pipeline needs consistency</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ======================================================
+  OUTCOMES
+====================================================== -->
+<section class="section section--dark" id="outcomes">
+  <div class="wrap">
+    <div class="section-header reveal" style="margin-bottom:60px;">
+      <div class="label"><div class="label-dot"></div>Expected Outcomes</div>
+      <h2 class="heading">What success<br/><em>looks like.</em></h2>
+      <p class="sub">Clients who complete a full engagement with Link2Lead see meaningful, compounding improvements across positioning, pipeline, and authority.</p>
+    </div>
+
+    <div class="outcomes__grid reveal">
+      <div class="outcome__card">
+        <div class="outcome__icon">💼</div>
+        <h3>Stronger LinkedIn Presence</h3>
+        <p>Your profile becomes a credibility asset that works 24/7 — improving profile visits, acceptance rates, and trust.</p>
+      </div>
+      <div class="outcome__card">
+        <div class="outcome__icon">📅</div>
+        <h3>Qualified Meetings Booked</h3>
+        <p>Decision-makers who genuinely match your ICP land on your calendar — no tyre-kickers, no wasted calls.</p>
+      </div>
+      <div class="outcome__card">
+        <div class="outcome__icon">🔁</div>
+        <h3>Repeatable Outbound System</h3>
+        <p>The infrastructure we build doesn't stop when we do. You have a system that can run, be optimized, and scale.</p>
+      </div>
+      <div class="outcome__card">
+        <div class="outcome__icon">🎯</div>
+        <h3>Clearer Market Positioning</h3>
+        <p>Real outreach data tells you which messaging resonates, which segments respond, and where the best opportunities are.</p>
+      </div>
+      <div class="outcome__card">
+        <div class="outcome__icon">📈</div>
+        <h3>Consistent Outbound Activity</h3>
+        <p>Pipeline doesn't pause. Campaigns run every week, follow-ups are managed, your brand stays visible to the right people.</p>
+      </div>
+      <div class="outcome__card">
+        <div class="outcome__icon">🛡️</div>
+        <h3>Founder Authority Built</h3>
+        <p>You become the recognisable, credible name in your niche — the person decision-makers think of when your problem comes up.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ======================================================
+  FREE TRIAL — HIGHLIGHTED
+====================================================== -->
+<section class="trial" id="free-trial">
+  <div class="wrap">
+    <div class="trial__card reveal">
+      <div class="trial__glow"></div>
+      <div class="trial__ribbon">Limited-Time Offer</div>
+      <div class="trial__inner">
+        <div class="trial__left">
+          <div class="label" style="margin-bottom:14px;"><span class="label-dot"></span>New Client Offer</div>
+          <h2 class="trial__title">Try Link2Lead.<br/><em>Your First Month Is Free.</em></h2>
+          <p class="trial__sub">
+            We're confident enough in our outbound system to put our money where our mouth is. Onboard this quarter and we'll run your first month — profile optimization, content, outreach, and appointment setting — at zero cost.
+          </p>
+          <ul class="trial__list">
+            <li>No setup fees during your free month</li>
+            <li>Full access to the complete 6-step system</li>
+            <li>Cancel anytime — no long-term lock-in for the trial</li>
+            <li>Limited to a small number of new clients per quarter</li>
+          </ul>
+        </div>
+        <div class="trial__right">
+          <div class="trial__pricebox">
+            <div class="trial__was">Normally $999/month</div>
+            <div class="trial__now">$0</div>
+            <div class="trial__period">for your first month</div>
+            <a class="btn-trial" href="mailto:Link2leadagency@gmail.com?subject=Interested%20in%20your%20Free%20Trial%20Month&body=Hey%2C%20I%20am%20interested%20in%20your%20service.">
+              Claim My First Month Free Trial →
+            </a>
+            <div class="trial__note">Opens your email, pre-filled and ready to send.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ======================================================
+  CTA
+====================================================== -->
+<section class="cta-section" id="contact">
+  <div class="wrap">
+    <div class="reveal">
+      <h2>Ready to build a<br/><em>predictable B2B pipeline?</em></h2>
+      <p>Book a 30-minute discovery call, or claim your first month free trial and let our outreach speak for itself.</p>
+      <div class="cta-actions">
+        <a class="btn-primary" href="https://calendly.com/link2leadagency/30min" target="_blank">Book a Discovery Call →</a>
+        <a class="btn-trial-outline" href="mailto:Link2leadagency@gmail.com?subject=Interested%20in%20your%20Free%20Trial%20Month&body=Hey%2C%20I%20am%20interested%20in%20your%20service.">🎁 Claim First Month Free Trial</a>
+      </div>
+      <div class="cta-meta">
+        <span>No commitment required</span>
+        <span class="cta-meta-sep">·</span>
+        <span>30-minute call</span>
+        <span class="cta-meta-sep">·</span>
+        <span>Strategy discussion</span>
+        <span class="cta-meta-sep">·</span>
+        <span>No hard pitch</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ======================================================
+  FOOTER
+====================================================== -->
+<footer>
+  <div class="wrap">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <div class="nav__logo">
+          <img src="logo.jpg" alt="Link2Lead" class="nav__mark-img" />
+        </div>
+        <p>Helping B2B founders build pipeline without a full sales team. LinkedIn-driven outbound systems for founder-led companies targeting global markets.</p>
+        <div class="footer__brand-links">
+          <a href="https://www.linkedin.com/company/link2lead" target="_blank">LinkedIn ↗</a>
+          <a href="mailto:link2leadagency@gmail.com" style="color:var(--muted); font-weight:400;">link2leadagency@gmail.com</a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Profile Optimization</a></li>
+          <li><a href="#services">Founder Branding</a></li>
+          <li><a href="#services">Content System</a></li>
+          <li><a href="#services">Outreach Campaigns</a></li>
+          <li><a href="#services">Appointment Setting</a></li>
+          <li><a href="#services">Lead Generation</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#process">Our Process</a></li>
+          <li><a href="#why">Why Link2Lead</a></li>
+          <li><a href="#clients">Our Clients</a></li>
+          <li><a href="#engagement">Engagement Model</a></li>
+          <li><a href="#outcomes">Outcomes</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>Get Started</h4>
+        <ul>
+          <li><a href="https://calendly.com/link2leadagency/30min" target="_blank">Book a Discovery Call →</a></li>
+          <li><a href="https://www.linkedin.com/company/link2lead" target="_blank">LinkedIn Page →</a></li>
+          <li><a href="mailto:link2leadagency@gmail.com">Send an Email</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>© 2026 Link2Lead. All rights reserved.</span>
+      <span><a href="https://www.linkedin.com/company/link2lead" target="_blank">linkedin.com/company/link2lead</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+  });
+  function closeMobile() {
+    mobileMenu.classList.remove('open');
+  }
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+
+  // Stagger child cards
+  document.querySelectorAll(
+    '.services__grid, .problem__grid, .why__grid, .clients__grid, .included__grid, .outcomes__grid'
+  ).forEach(grid => {
+    Array.from(grid.children).forEach((child, i) => {
+      child.style.transitionDelay = `${i * 0.07}s`;
+      child.classList.add('reveal');
+      observer.observe(child);
+    });
+  });
+</script>
+
+</body>
+</html>
